@@ -19,7 +19,16 @@
   \item{\code{documentos}}{character tipo y número de documento}
   \item{\code{anio_nacimiento}}{character año de nacimiento}
   \item{\code{provincia_nacimiento}}{character provincia de nacimiento (solo para el caso de ciudadanos nacidos en Argentina)}
-  ...
+  \item{\code{pais_nacimiento}}{character país de nacimiento}
+  \item{\code{nacionalidad}}{character nacionalidad de la víctima}
+  \item{\code{embarazo}}{character datos sobre el embarazo de la víctima y sobre el destino del niño nacido en cautiverio}
+  \item{\code{fecha_detencion_secuestro}}{character fecha de detención-secuestro de la víctima}
+  \item{\code{lugar_detencion_secuestro}}{character lugar de detención-secuestro de la víctima}
+  \item{\code{fecha_asesinato_o_hallazgo_de_restos}}{character fecha de asesinato, fallecimiento o hallazgo de los restos de la víctima}
+  \item{\code{lugar_asesinato_o_hallazgo_de_restos}}{character lugar de asesinato, fallecimiento o hallazgo de los restos de la víctima}
+  \item{\code{fotografia}}{character información sobre si obra fotografía de la víctima en base de datos}
+  \item{\code{provincia_nacimiento_indec_id}}{character provincia de nacimiento (solo para el caso de ciudadanos nacidos en Argentina), según la codificación de provincia implementada por INDEC}
+  \item{\code{pais_nacimiento_indec_id}}{character país de nacimiento, según la codificación de país implementada por INDEC.}
 }}
 \usage{
 victimas_accionar_represivo_ilegal

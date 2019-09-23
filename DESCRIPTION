@@ -1,14 +1,18 @@
 Package: RUVTE
-Title: What the Package Does (One Line, Title Case)
+Title: Unified Registry of Victims of State Terrorism -RUVTE-
 Version: 0.0.0.9000
 Authors@R: 
-    person(given = "First",
-           family = "Last",
+    person(given = "Diego",
+           family = "Kozlowski",
            role = c("aut", "cre"),
-           email = "first.last@example.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+           email = "diegokoz92@gmail.com",
+           comment = c(ORCID = "0000-0002-5396-3471"))
+Description: Compilation and digitalization of the oficial registry of victims of state terrorism in Argentina during the last
+             military coup. The original data comes from RUVTE-ILID (2019) <https://www.argentina.gob.ar/sitiosdememoria/ruvte/informe>.
+BugReports: https://github.com/DiegoKoz/RUVTE/issues
+Depends: R (>= 2.10)
 License: MIT + file LICENSE
 Encoding: UTF-8
+Language: es
 LazyData: true
 RoxygenNote: 6.1.1

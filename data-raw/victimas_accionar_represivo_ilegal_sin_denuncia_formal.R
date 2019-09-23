@@ -38,11 +38,9 @@ data_frame_roxygen <- function(obj) {
 
     items <- paste0(sprintf("#'   \\item{\\code{%s}}{%s ---DESCRIPTION---}", names(cl), cl))
 
-    if(length(items) > 10) {
-      items <- paste0(c(items[seq_len(10)], "#'   ..."), collapse = "\n")
-    } else {
+
       items <- paste0(items, collapse = "\n")
-    }
+
 
     header <- c(
       title = paste0("#' @title ", deparse(substitute(obj))),
