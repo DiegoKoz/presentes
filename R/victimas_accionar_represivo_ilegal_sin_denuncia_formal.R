@@ -1,0 +1,24 @@
+#' @title victimas_accionar_represivo_ilegal_sin_denuncia_formal
+#' @description se detalla el listado de casos en investigación incluidos en el listado de la Conadep sin denuncia formal
+#'  ante la Secretaría de Derechos Humanos y Pluralismo Cultural de la Nación, que revisten la categoría de
+#'  “presunción de desaparición forzada”.
+#' Recurso original: http://datos.jus.gob.ar/dataset/registro-unificado-de-victimas-del-terrorismo-de-estado-ruvte
+#' @format A data frame with 784 rows and 21 variables:
+#' \describe{
+#'   \item{\code{anio_denuncia}}{double año de alta original de la denuncia en los registros que hoy constituyen el Ruvte}
+#'   \item{\code{tipificacion_ruvte}}{character tipificación principal del caso según el Ruvte (víctima de desaparición forzada
+#'    o víctima de asesinato), a la que se agregan observaciones que en algunos casos especifican la fuente, y en otros,
+#'     actualizaciones de estado (por ejemplo, exhumados e identificados sus restos, entre otras)}
+#'   \item{\code{id_unico_ruvte}}{character número de identificación del caso individual}
+#'   \item{\code{apellido_paterno_nombres}}{character apellido paterno y nombres de pila de la víctima}
+#'   \item{\code{apellido_materno}}{character apellido materno}
+#'   \item{\code{apellido_casada}}{character apellido de casada}
+#'   \item{\code{edad_al_momento_del_hecho}}{character edad al momento del hecho (al momento de su deceso, o, en su defecto,
+#'    de su “desaparición”)}
+#'   \item{\code{documentos}}{character tipo y número de documento}
+#'   \item{\code{anio_nacimiento}}{character año de nacimiento}
+#'   \item{\code{provincia_nacimiento}}{character provincia de nacimiento (solo para el caso de ciudadanos nacidos en Argentina)}
+#'   ...
+#'}
+
+"victimas_accionar_represivo_ilegal_sin_denuncia_formal"
