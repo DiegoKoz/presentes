@@ -1,10 +1,21 @@
 library(pdftools)
-library(tm)
+library(tidyverse)
 
 
-prueba <- pdf_text('data/4._anexo_iii_ndice_de_apodos-investigacion_ruvte-ilid.pdf')
+pdf_raw <- pdf_text('data/4._anexo_iii_ndice_de_apodos-investigacion_ruvte-ilid.pdf')
 
+text <- strsplit(pdf_raw, "\n")
 
-prueba[5]
+normalizar_texto <- function(texto_crudo){
+tibble(texto=texto_crudo) %>%
+  filter(!str_detect(texto, pattern = 'ANEXO III')) %>%
+  mutate(es_apodo= !str_detect(texto, 'ID'),
+         apodo = case_when(es_apodo ~ texto)) %>%
+  fill(apodo, .direction = 'down') %>%
+  filter(!es_apodo) %>%
+  separate(texto, c('nombres', 'ID'), sep='ID') %>%
+  mutate(nombres=trimws(nombres)) %>%
+  separate(nombres, c('nombre', 'apellido_materno'),sep = '[:space:]{2,}',fill = 'right')
+}
 
-# entre "" aparecen los apodos. Todos los ID que vienen a continuación de un apodo son los que corresponden a las víctimas que lo utilizaban.
+texto_normalizado <- map_df(text, normalizar_texto)
