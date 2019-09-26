@@ -1,0 +1,119 @@
+---
+title: "Carta De Eduardo Luis Duhalde a Graciela Fernández Meijide"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Carta_Duhalde}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+# CARTA PÚBLICA A LA SRA. GRACIELA FERNÁNDEZ MEIJIDE:
+
+ 
+
+Le escribo esta carta pública a la madre de un detenido-desaparecido y a la integrante por muchos años del Movimiento de Derechos Humanos. Lo hago no como Secretario de Derechos Humanos de la Nación, sino como compañero de las luchas antidictatoriales. Por esta razón rompo mi norma de conducta de no polemizar en torno a un tema tan grave e inconmensurable como son las consecuencias del genocidio sufrido.
+
+ 
+
+La opinión pública está acostumbrada a esfuerzos por disminuir la dimensión de la tragedia argentina, normalmente en boca de epígonos del terrorismo de Estado como Mariano Grondona o Cecilia Pando. De igual modo escuchamos cada tanto voces negacionistas del Holocausto que sostienen que no fueron seis millones los judíos inmolados por el nazismo, sino un número inferior como si la aberración criminal fuera una cuestión aritmética.
+
+ 
+
+Distinto es su caso porque por historia usted no integra los cuadros de la barbarie.
+
+ 
+
+Bastaría ver el regocijo que sus declaraciones han producido en quienes justifican el obrar del terrorismo de Estado para advertir las consecuencias enormemente graves de sus dichos que parten de un error esencial: el creer que existe algún registro fehaciente de la dimensión del crimen masivo de lesa humanidad perpetrado por las Fuerzas Armadas argentinas y sus socios civiles.
+
+ 
+
+El único registro fehaciente de la cantidad de víctimas asesinadas, su identidad y destino final solo está en poder de los asesinos. De aquellos que mientras pregonan que su accionar fue "justo y en defensa de la patria" ocultan todo dato, sabiendo que su proceder fue abiertamente criminal.
+
+ 
+
+Bien sabe usted que no hay un censo nacional completo sobre el número de víctimas y que éste es irremisiblemente aproximativo.
+
+ 
+
+Usted como integrante de la CONADEP conoce el enorme esfuerzo que durante el lapso de los sólo ocho meses de vida de la Comisión se realizó para receptar testimonios de familiares de víctimas que accedieron a convertir en denuncia su dolor. Era el comienzo de la recuperación de la democracia, con los asesinos caminando por las calles y en libertad.
+
+ 
+
+Concluido el trabajo de la CONADEP y finalmente depositado el fondo documental en la entonces Subsecretaría de Derechos Humanos, algunos familiares continuaron haciendo sus denuncias aunque ya no estaba la motivación de expresarse ante la Comisión. La euforia que precedió al juicio de los ex Comandantes dio paso a la decepción más absoluta con el dictado de las leyes de Obediencia Debida y Punto Final y los posteriores indultos que aseguraron la impunidad de los criminales por más de 20 años.
+
+ 
+
+¿Tenía acaso sentido que los familiares de los detenidos -desaparecidos que no habían hecho su denuncia ante la CONADEP concurrieran a seguir haciéndolo ante un Estado que protegía a los criminales? Cuando 20 años después las leyes de la impunidad fueron derogadas y declaradas inconstitucionales, ya era tarde. Muchos de los padres de las víctimas habían fallecido o la resignación ante lo inevitable había mermado sus fuerzas para hacer su denuncia.
+
+ 
+
+A ello se suma que en alguna zona del país, aún en democracia, parte de los peores represores continuaron teniendo poder: como Bussi institucionalmente en Tucumán o Benjamín Menéndez fácticamente en Córdoba, prolongando la cadena de temor. En otras provincias como Chaco, Misiones o Salta donde poblaciones campesinas fueron víctimas del terrorismo de Estado, su condición de marginados sociales no favoreció su acceso a la Justicia.
+
+ 
+
+Recién a partir del año 2004 con el fin de la impunidad, al amparo de las políticas públicas de Memoria, Verdad y Justicia, se incrementó el cotidiano goteo de nuevas denuncias que sigue hasta el presente.
+
+ 
+
+En consecuencia tomar los registros parciales de la CONADEP y los posteriores a la Secretaría de Derechos Humanos como registros totales, es tan falaz y mentiroso como reducir el número de desaparecidos a la cantidad de restos óseos localizados, que apenas superan el número de 1000.
+
+ 
+
+Lo dicho vale para explicar la parcialidad de la identificación lograda hasta el presente a través de las denuncias de los familiares. Tampoco ha servido la cuantificación de los familiares presentados, reclamando el beneficio de las leyes reparatorias, puesto que no todos los desaparecidos dejaron herederos forzosos y que parte de aquellos familiares rechazaron reclamar la indemnización hasta que no se supieran quienes fueron los autores del crímen y fueran condenados y los restos de su familiar fuera hallado.
+
+ 
+
+Lo dicho explica por qué las cifras que usted utiliza son parciales y que por otra parte jamás fueron ocultados, puesto que usted las halló en la información on line del Estado argentino y obran también en la última edición del Nunca Más.
+
+ 
+
+Concluido este aspecto cabe adentrarse en el número de 30.000 detenidos-desaparecidos convertido en consigna permanente no sólo del Movimiento de Derechos Humanos sino de vastos sectores sociales. La cifra no es arbitraria y es el producto de diversas variables:
+
+ 
+
+a) La cantidad de sitios clandestinos de detención y exterminio, en todo el país, que superan el número de 500.
+
+ 
+
+b) Las estimaciones sobre el número de prisioneros que hubo en los grandes centros de detención y exterminios como la ESMA, Campo de Mayo, La Perla, el Batallón de Tucumán, el Circuito Camps, El Olimpo, El Atlético, etc., ya que ellos solos superan con creces el número actual registrado en la CONADEP y la Secretaría de Derechos Humanos.
+
+ 
+
+c) La estimación en torno al número proporcional de Habeas Corpus presentados en el país.
+
+ 
+
+d) El número de integrantes de las estructuras militares afectadas a la represión ilegal durante todo el periodo dictatorial que superan los 150 mil hombres, activos a la caza de sus víctimas.
+
+ 
+
+e) Los propios dichos de los militares previo al golpe de Estado, de que sus relevamientos efectuados con anterioridad, desde las escuelas hasta las fábricas, que indicaban en más de 30.000 las personas a eliminar (ver por ejemplo los dichos de un militar en la carta del escritor Haroldo Conti desaparecido el 5 de mayo de 1976, escrita previa al golpe y dirigida a Roberto Fernández Retamar de fecha 02 de enero de 1976).
+
+ 
+
+f) Los informes de la Embajada Norteamericana al Departamento de Estado, haciendo constar que en el año 1978 los jefes de la dictadura argentina informaron a la DINA chilena que las víctimas alcanzaban ya el número de 22.000. Debe recordarse que la dictadura continuó en su labor represiva ilegal de secuestros y asesinatos por cinco años más con posterioridad a ese informe y que aquella cifra de 22.000 correspondía a solo los dos primeros años de la dictadura.
+
+ 
+
+Todo ello hace que la cifra de 30.000 no sea ni arbitraria ni caprichosa. Aunque es lamentable reducir la dimensión de la tragedia argentina a un problema contable.
+
+ 
+
+El carácter masivo, criminal y abyecto no se mide por un resultado aritmético, al menos para los que creemos que cuando se asesina un hombre se está asesinando a la humanidad.
+
+ 
+
+No puedo dejar de referirme a sus expresiones de que contrariar la teoría de los dos demonios es un problema de "chiquitaje". Aquella perversa teoría no iguala como pareciera la responsabilidad de la violencia popular al terrorismo estatal, sino que en la medida en que sostiene que la violencia popular fue anterior a los crímenes de Estado, en definitiva se convierte en la teoría de un solo demonio, el de los sectores populares. Así se tergiversa, se miente y se oculta la verdad histórica de que a partir del Bombardeo de la Plaza de Mayo el 16 de junio de 1955 con sus 300 muertos, con los sucesivos asaltos al Estado y la proscripción política, con los fusilamientos de junio de 1956 y la Masacre de José León Suarez, con las cárceles llenas de presos políticos, con la aplicación del Plan CONINTES, con los asesinatos de militantes populares desde Felipe Vallese en adelante hasta llegar a la Masacre de Trelew, se generó una masiva, sistemática y criminal represión al pueblo argentino que se prolongó hasta la propia génesis del asalto al poder el 24 de marzo de 1976.
+
+ 
+
+Por último, dice usted que los juicios a los militares no van a ninguna parte. Ello es un verdadero despropósito: la condena de las Juntas, de Camps, Menéndez, Bussi, Etchecolatz y tantos otros, no solo sirven para recuperar a la Justicia como una actividad fundante del Estado: ha servido para que la condena social al terrorismo de Estado sea irreversible y de encarnadura al "Nunca Más". Felizmente todos los días se avanza en los centenares de causas judiciales en trámite, con aporte de nuevas pruebas.
+
+ 
+
+Es triste comprobar que usted pretenda ignorar todas estas circunstancias, aunque seguramente sus afirmaciones le asegurarán un buen éxito editorial para el libro que ha escrito.
+
+ 
+
+EDUARDO LUIS DUHALDE

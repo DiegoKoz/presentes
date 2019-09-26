@@ -1,0 +1,14 @@
+url: https://diegokoz.github.io/RUVTE/
+home:
+  title: Registro Único de Víctimas del Terrorismo de Estado
+
+destination: docs
+
+toc:
+  depth: 2
+template:
+  params:
+    bootswatch: united
+    ganalytics: UA-122515754-4
+navbar:
+  type: inverse

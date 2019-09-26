@@ -19,7 +19,13 @@ knitr::opts_chunk$set(
 [![Codecov test coverage](https://codecov.io/gh/DiegoKoz/RUVTE/branch/master/graph/badge.svg)](https://codecov.io/gh/DiegoKoz/RUVTE?branch=master)
 <!-- badges: end -->
 
-The goal of RUVTE is to ...
+El objetivo de la librería RUVTE es poner a disposición la información provista en  http://datos.jus.gob.ar/dataset/registro-unificado-de-victimas-del-terrorismo-de-estado-ruvte y el informe https://www.argentina.gob.ar/sitiosdememoria/ruvte/informe 
+
+
+## Son 30.000
+
+Consideramos pertinente realizar la aclaración de qué, aunque la información provista por este dataset no cuenta con 30.000 registros, ello no se debe a que no haya habído esa cantidad de víctimas del terrorismo de estado en Argentina durante la úlitma dictadura militar, sino a que un gran número de casos no pudieron ser identificados y sistematizados. Al respecto, compartimos la [carta de Eduardo Luis Duahlde](docs/articles/Carta_Duhalde.html)
+
 
 ## Installation
 
