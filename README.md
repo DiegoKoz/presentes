@@ -25,7 +25,7 @@ ello no se debe a que no haya habído esa cantidad de víctimas del
 terrorismo de estado en Argentina durante la úlitma dictadura militar,
 sino a que un gran número de casos no pudieron ser identificados y
 sistematizados. Al respecto, compartimos la [carta de Eduardo Luis
-Duahlde](docs/articles/Carta_Duhalde.html)
+Duahlde](articles/Carta_Duhalde.html)
 
 ## Installation
 
