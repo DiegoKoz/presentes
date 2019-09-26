@@ -8,7 +8,5 @@ toc:
   depth: 2
 template:
   params:
-    bootswatch: Sandstone
+    bootswatch: flatly
     ganalytics: UA-122515754-4
-navbar:
-  type: inverse
