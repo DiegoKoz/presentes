@@ -4,3 +4,5 @@
 ^LICENSE\.md$
 ^extdata$
 ^README\.Rmd$
+^\.travis\.yml$
+^codecov\.yml$
