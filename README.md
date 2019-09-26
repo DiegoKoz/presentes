@@ -19,13 +19,13 @@ y el informe
 
 ## Son 30.000
 
-Consideramos pertinente realizar la aclaración de qué, aunque la
+Consideramos pertinente realizar la aclaración de que, aunque la
 información provista por este dataset no cuenta con 30.000 registros,
-ello no se debe a que no haya habído esa cantidad de víctimas del
-terrorismo de estado en Argentina durante la úlitma dictadura militar,
+esto no se debe a que no haya sido esa cantidad de víctimas del
+terrorismo de Estado en Argentina durante la úlitma dictadura militar,
 sino a que un gran número de casos no pudieron ser identificados y
 sistematizados. Al respecto, compartimos la [carta de Eduardo Luis
-Duahlde](articles/Carta_Duhalde.html)
+Duahlde](https://diegokoz.github.io/RUVTE//articles/Carta_Duhalde.html).
 
 ## Installation
 
