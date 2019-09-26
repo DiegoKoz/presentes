@@ -7,8 +7,7 @@
 
 [![Travis build
 status](https://travis-ci.org/DiegoKoz/RUVTE.svg?branch=master)](https://travis-ci.org/DiegoKoz/RUVTE)
-[![Codecov test
-coverage](https://codecov.io/gh/DiegoKoz/RUVTE/branch/master/graph/badge.svg)](https://codecov.io/gh/DiegoKoz/RUVTE?branch=master)
+<!--[![Codecov test coverage](https://codecov.io/gh/DiegoKoz/RUVTE/branch/master/graph/badge.svg)](https://codecov.io/gh/DiegoKoz/RUVTE?branch=master)-->
 <!-- badges: end -->
 
 El objetivo de la librería RUVTE es poner a disposición la información
