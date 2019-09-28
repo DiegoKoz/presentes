@@ -1,8 +1,7 @@
 pandoc: 2.3.1
 pkgdown: 1.4.1
 pkgdown_sha: ~
-articles:
-  Carta_Duhalde: Carta_Duhalde.html
+articles: {}
 urls:
   reference: https://diegokoz.github.io/RUVTE//reference
   article: https://diegokoz.github.io/RUVTE//articles
