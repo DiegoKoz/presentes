@@ -26,3 +26,6 @@ centros_clandestinos_detencion <- map_df(pdf_raw[17:92], ccd_parser) %>%
   arrange(ID)
 
 usethis::use_data(centros_clandestinos_detencion,overwrite = TRUE)
+
+
+write_csv(centros_clandestinos_detencion,'extdata/centros_clandestinos_detencion.csv')

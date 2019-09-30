@@ -23,3 +23,5 @@ normalizar_texto <- function(texto_crudo){
 apodos <- map_df(text, normalizar_texto)
 
 usethis::use_data(apodos)
+
+write_csv(apodos,'extdata/apodos.csv')
