@@ -1,4 +1,7 @@
 ## code to geocode `centros_clandestinos_detencion` dataset goes here
+## Important: centros_clandestinos_detencion.R creates the dataset that will
+## be used here
+
 library(stringr)
 library(purrr)
 library(ggmap)
@@ -7,8 +10,8 @@ library(ggmap)
 httr::set_config(httr::config(http_version = 0))
 
 
-# Se requere API
-gogle_maps_API_key <- "BLAHBLAHBLAHA7ibZfaoJXaI8er02UaoG"
+# Se requiere API key - https://developers.google.com/maps/documentation/geocoding/get-api-key
+gogle_maps_API_key <- "BLAHBLAHBLAH7ibZfaoJXaI8er02UaoG"
 register_google(key = gogle_maps_API_key)
 
 # Datos de entrada
@@ -27,8 +30,8 @@ georeferenciar <- function(midf) {
 
     #Retiramos la descripción que a veces aparece a continuación de la provincia
     # ejemplo: "CÓRDOBA                          EX DEPCIAS. DEL ARMA BRIGADA DE CABALLERÍA AEROTRANSPORTADA (CUERPO DE EJÉRCITO III)"
-
     provincia <- str_remove(provincia, '  +.*')
+
     # A Google no le gusta el nombre oficial de Tierra del Fuego
     # y de paso actualizamos Capital Federal a CABA
     provincia <- str_replace_all(provincia,
@@ -60,11 +63,16 @@ georeferenciar <- function(midf) {
   coordenadas <- pmap_df(list(location = ubicaciones, inject = inyectar),
                          geocode)
 
-  # devolver dataframe original con colunas de coordendas
+  # devolver dataframe original con columnas de coordendas
   cbind(midf, coordenadas)
 
 
 }
 
+# A georefenciar:
 centros_clandestinos_detencion <- georeferenciar(centros_clandestinos_detencion)
+
+
+# Guardar los resultados
+usethis::use_data(centros_clandestinos_detencion, overwrite = TRUE)
 write.csv(centros_clandestinos_detencion,'georef/centros_clandestinos_detencion.csv')
