@@ -43,9 +43,21 @@ This is a basic example which shows you how to solve a common problem:
 library(RUVTE)
 library(tidyverse)
 library(DT)
+```
+
+```{r}
 RUVTE::centros_clandestinos_detencion %>% sample_n(10)
+```
+
+```{r}
 RUVTE::apodos %>% sample_n(10)
+```
+
+```{r}
 RUVTE::victimas_accionar_represivo_ilegal %>% sample_n(10)
+```
+
+```{r}
 RUVTE::victimas_accionar_represivo_ilegal_sin_denuncia_formal %>% sample_n(10)
 ```
 
