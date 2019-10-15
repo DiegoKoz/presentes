@@ -10,7 +10,7 @@ Authors@R:
 Description: Compilation and digitalization of the oficial registry of victims of state terrorism in Argentina during the last
              military coup. The original data comes from RUVTE-ILID (2019) <https://www.argentina.gob.ar/sitiosdememoria/ruvte/informe>.
 BugReports: https://github.com/DiegoKoz/RUVTE/issues
-Depends: R (>= 2.10)
+Depends: R (>= 3.5.0)
 License: MIT + file LICENSE
 Encoding: UTF-8
 Language: es

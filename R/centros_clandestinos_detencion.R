@@ -12,6 +12,8 @@
 #'               http://www.jus.gob.ar/derechoshumanos/red-federal-de-sitios-de-la-memoria.}
 #'   \item{\code{ubicacion}}{character CALLE y NÚMERO u otras referencias · Barrio o paraje · LOCALIDAD · PARTIDO o DEPARTAMENTO ·
 #'               PROVINCIA}
+#'   \item{\code{lon}}{num longitud}
+#'   \item{\code{lat}}{num latitud}
 #'}
 
 "centros_clandestinos_detencion"
