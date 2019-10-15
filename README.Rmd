@@ -39,13 +39,13 @@ devtools::install_github("DiegoKoz/RUVTE")
 
 This is a basic example which shows you how to solve a common problem:
 
-```{r example, warning=FALSE}
+```{r example, message=FALSE, warning=FALSE}
 library(RUVTE)
 library(tidyverse)
 library(DT)
-RUVTE::centros_clandestinos_detencion
-RUVTE::apodos
-RUVTE::victimas_accionar_represivo_ilegal
-RUVTE::victimas_accionar_represivo_ilegal_sin_denuncia_formal
+RUVTE::centros_clandestinos_detencion %>% sample_n(10)
+RUVTE::apodos %>% sample_n(10)
+RUVTE::victimas_accionar_represivo_ilegal %>% sample_n(10)
+RUVTE::victimas_accionar_represivo_ilegal_sin_denuncia_formal %>% sample_n(10)
 ```
 
