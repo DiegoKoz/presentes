@@ -125,4 +125,8 @@ parque_de_la_memoria <- parque_de_la_memoria %>%
   spawn_progressbar %>%
   mutate(articulos_periodisticos = map(articulos_periodisticos,separar_campos, .pb))
 
+parque_de_la_memoria <- parque_de_la_memoria %>%
+  mutate(sexo = recode(sexo, "f" = "Femenino",
+                              "None" = "NA"))
+
 usethis::use_data(parque_de_la_memoria, overwrite = TRUE)
