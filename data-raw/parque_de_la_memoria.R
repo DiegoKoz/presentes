@@ -77,7 +77,7 @@ df <- df %>%
   spawn_progressbar %>%
   mutate(page = map(link, get_links_df, .pb))
 
-df %>% saveRDS('data-raw/links_intermedios.rds')
+df %>% saveRDS('extdata/links_intermedios_pdlm.rds')
 
 
 df <- df %>% unnest(cols = c(page))
@@ -86,7 +86,7 @@ df <- df %>%
   spawn_progressbar() %>%
   mutate(page = map(sublink,get_person_data,.pb))
 
-df %>% saveRDS('data-raw/paginas_finales.rds')
+df %>% saveRDS('extdata/paginas_finales_pdlm.rds')
 
 df2 <- df %>%
   unnest(cols = c(page))
