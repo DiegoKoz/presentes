@@ -1,13 +1,26 @@
 ## code to prepare `parque_de_la_memoria` dataset goes here
 
+#cargo librerias
 library(rvest)
 library(xml2)
 library(tidyverse)
 library(glue)
-#base
+library(janitor)
+
+# revision manual pagina
 # http://basededatos.parquedelamemoria.org.ar/registros/?page=1
 # paginas 1:351
 
+#defino funciones
+## progressbar
+spawn_progressbar <- function(x, .name = .pb, .times = 1) {
+  .name <- substitute(.name)
+  n <- nrow(x) * .times
+  eval(substitute(.name <<- dplyr::progress_estimated(n)))
+  x
+}
+
+## recuperar links a los prefiles
 get_links_df <- function(link, .pb){
   .pb$tick()$print()
   nodes <- read_html(link) %>%
@@ -26,7 +39,7 @@ get_links_df <- function(link, .pb){
            id =str_extract(sublink,'(?<=/registros/)\\d*(?=/)') ) %>%
     select(id,nombre,embarazada,edad,estado,ano_en_monumento,sublink)
 }
-
+## recuperar info de los perfiles
 get_person_data <- function(sublink,.pb){
   .pb$tick()$print()
   page <- read_html(sublink)
@@ -61,40 +74,55 @@ get_person_data <- function(sublink,.pb){
   }
   df
 }
-
-spawn_progressbar <- function(x, .name = .pb, .times = 1) {
-  .name <- substitute(.name)
-  n <- nrow(x) * .times
-  eval(substitute(.name <<- dplyr::progress_estimated(n)))
-  x
+## separar campos que son listados
+separar_campos <- function(string,.pb){
+  .pb$tick()$print()
+  tibble(listado= unlist(str_split(string,'\\+'))) %>%
+    filter(listado !='') %>%
+    mutate(listado = str_squish(listado))
 }
 
+# Scrappeo
 
+## creo base
 df <- tibble(link= glue('http://basededatos.parquedelamemoria.org.ar/registros/?page={1:351}') )
 
+## Creo dataset con links a perfiles
 
-df <- df %>%
-  spawn_progressbar %>%
-  mutate(page = map(link, get_links_df, .pb))
+# df <- df %>%
+#   spawn_progressbar %>%
+#   mutate(page = map(link, get_links_df, .pb))
 
-df %>% saveRDS('extdata/links_intermedios_pdlm.rds')
+# df %>% saveRDS('extdata/links_intermedios_pdlm.rds')
 
+df <- read_rds('extdata/links_intermedios_pdlm.rds')
 
 df <- df %>% unnest(cols = c(page))
 
+## descargo la info de cada perfil
+# df <- df %>%
+#   spawn_progressbar() %>%
+#   mutate(page = map(sublink,get_person_data,.pb))
+
+# df %>% saveRDS('extdata/paginas_finales_pdlm.rds')
+
+#Limpieza
+
+df <- read_rds('extdata/paginas_finales_pdlm.rds')
+
 df <- df %>%
-  spawn_progressbar() %>%
-  mutate(page = map(sublink,get_person_data,.pb))
-
-df %>% saveRDS('extdata/paginas_finales_pdlm.rds')
-
-df2 <- df %>%
-  unnest(cols = c(page))
-df2 <- df2 %>%
+  unnest(cols = c(page),names_repair='universal') %>%
   janitor::clean_names()
 
-parque_de_la_memoria <- df2 %>%
-  select(-c(link,edad_2,estado_2,nombre_2,id1,embarazada_2)) %>%
-  select(id, link=sublink, nombre, edad, everything())
+parque_de_la_memoria <- df %>%
+  select(-c(link,edad_2,estado_2,nombre_2,id_23,embarazada_2)) %>%
+  select(id=id_2, link=sublink, nombre, edad, everything())
+
+
+parque_de_la_memoria <- parque_de_la_memoria %>%
+  spawn_progressbar %>%
+  mutate(militancia = map(militancia,separar_campos, .pb)) %>%
+  spawn_progressbar %>%
+  mutate(articulos_periodisticos = map(articulos_periodisticos,separar_campos, .pb))
 
 usethis::use_data(parque_de_la_memoria, overwrite = TRUE)
