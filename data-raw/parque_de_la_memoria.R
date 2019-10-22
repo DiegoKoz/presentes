@@ -4,15 +4,12 @@ library(rvest)
 library(xml2)
 library(tidyverse)
 library(glue)
-
 #base
 # http://basededatos.parquedelamemoria.org.ar/registros/?page=1
 # paginas 1:351
 
-link <- 'http://basededatos.parquedelamemoria.org.ar/registros/?page=1'
-
-get_links_df <- function(link){
-
+get_links_df <- function(link, .pb){
+  .pb$tick()$print()
   nodes <- read_html(link) %>%
     rvest::html_nodes("a")
 
@@ -30,8 +27,8 @@ get_links_df <- function(link){
     select(id,nombre,embarazada,edad,estado,ano_en_monumento,sublink)
 }
 
-get_person_data <- function(sublink){
-
+get_person_data <- function(sublink,.pb){
+  .pb$tick()$print()
   page <- read_html(sublink)
   df <- tibble(rows = page%>%
            html_nodes('div.row') %>%
@@ -65,11 +62,39 @@ get_person_data <- function(sublink){
   df
 }
 
+spawn_progressbar <- function(x, .name = .pb, .times = 1) {
+  .name <- substitute(.name)
+  n <- nrow(x) * .times
+  eval(substitute(.name <<- dplyr::progress_estimated(n)))
+  x
+}
+
+
 df <- tibble(link= glue('http://basededatos.parquedelamemoria.org.ar/registros/?page={1:351}') )
 
 
-single_page <- single_page %>%
-  mutate(person_data = map(sublink,get_person_data))
+df <- df %>%
+  spawn_progressbar %>%
+  mutate(page = map(link, get_links_df, .pb))
 
-prueba <- single_page$person_data %>% bind_rows()
-#usethis::use_data(parque_de_la_memoria, overwrite = TRUE)
+df %>% saveRDS('data-raw/links_intermedios.rds')
+
+
+df <- df %>% unnest(cols = c(page))
+
+df <- df %>%
+  spawn_progressbar() %>%
+  mutate(page = map(sublink,get_person_data,.pb))
+
+df %>% saveRDS('data-raw/paginas_finales.rds')
+
+df2 <- df %>%
+  unnest(cols = c(page))
+df2 <- df2 %>%
+  janitor::clean_names()
+
+parque_de_la_memoria <- df2 %>%
+  select(-c(link,edad_2,estado_2,nombre_2,id1,embarazada_2)) %>%
+  select(id, link=sublink, nombre, edad, everything())
+
+usethis::use_data(parque_de_la_memoria, overwrite = TRUE)
