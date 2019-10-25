@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>centros_clandestinos_detencion — centros_clandestinos_detencion • presentes</title>
+<title>parque_de_la_memoria — parque_de_la_memoria • presentes</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -32,9 +32,10 @@
 
 
 
-<meta property="og:title" content="centros_clandestinos_detencion — centros_clandestinos_detencion" />
+<meta property="og:title" content="parque_de_la_memoria — parque_de_la_memoria" />
 
-<meta property="og:description" content="Información respecto a los Centros Clandestinos de Detención. Recuperado de https://www.argentina.gob.ar/sites/default/files/6._anexo_v_listado_de_ccd-investigacion_ruvte-ilid.pdf" />
+<meta property="og:description" content="Dataset elaborado a partir de los registros de
+ http://basededatos.parquedelamemoria.org.ar/registros/" />
 <meta name="twitter:card" content="summary" />
 
 
@@ -108,34 +109,53 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>centros_clandestinos_detencion</h1>
+    <h1>parque_de_la_memoria</h1>
     
-    <div class="hidden name"><code>centros_clandestinos_detencion.Rd</code></div>
+    <div class="hidden name"><code>parque_de_la_memoria.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p>Información respecto a los Centros Clandestinos de Detención. Recuperado de https://www.argentina.gob.ar/sites/default/files/6._anexo_v_listado_de_ccd-investigacion_ruvte-ilid.pdf</p>
+    <p>Dataset elaborado a partir de los registros de
+ http://basededatos.parquedelamemoria.org.ar/registros/</p>
     
     </div>
 
-    <pre class="usage"><span class='no'>centros_clandestinos_detencion</span></pre>
+    <pre class="usage"><span class='no'>parque_de_la_memoria</span></pre>
         
     <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
 
-    <p>A data frame with 762 rows and 5 variables:</p><dl class='dl-horizontal'>
-  <dt><code>ID</code></dt><dd><p>integer N° de orden e identificador único en la base de datos del Ruvte.</p></dd>
-  <dt><code>lugar_emplazamiento_propiedad</code></dt><dd><p>character propiedad de las dependencias, instalaciones o predios en los que el CCD
-              hubiera estado emplazado</p></dd>
-  <dt><code>denominacion</code></dt><dd><p>character La denominación del CCD se define en base a criterios distintos, prevaleciendo,
-              en general, el de “uso extendido”, que usualmente remite al nombre en clave, en jerga o coloquial
-              utilizado por el personal actuante transmitido por los sobrevivientes.</p></dd>
-  <dt><code>espacio_de_memoria</code></dt><dd><p>logical Indica si el espacio es en la actualidad un Espacio de Memoria
-              http://www.jus.gob.ar/derechoshumanos/red-federal-de-sitios-de-la-memoria.</p></dd>
-  <dt><code>ubicacion</code></dt><dd><p>character CALLE y NÚMERO u otras referencias · Barrio o paraje · LOCALIDAD · PARTIDO o DEPARTAMENTO ·
-              PROVINCIA</p></dd>
-  <dt><code>lon</code></dt><dd><p>num longitud</p></dd>
-  <dt><code>lat</code></dt><dd><p>num latitud</p></dd>
+    <p>Data frame con 8751 filas y 30 variables:</p><dl class='dl-horizontal'>
+  <dt><code>id</code></dt><dd><p>character id del caso. Construido a partir del id utilizado en la página</p></dd>
+  <dt><code>link</code></dt><dd><p>character url al registro de parquedelamemoria.org</p></dd>
+  <dt><code>nombre</code></dt><dd><p>character</p></dd>
+  <dt><code>edad</code></dt><dd><p>character</p></dd>
+  <dt><code>embarazada</code></dt><dd><p>character Indica si la víctima se encontraba embarazada al momento del hecho</p></dd>
+  <dt><code>estado</code></dt><dd><p>character Se distinguen dos tipos de víctimas del accionar represivo del Estado: por un lado, detenidos-desaparecidos (aquellas personas cuyos restos no han sido hallados aún) y, por el otro, asesinados (los casos donde sí se ha identificado sus restos y el Registro Civil ha expedido un certificado de defunción).</p></dd>
+  <dt><code>ano_en_monumento</code></dt><dd><p>character Año en que se incorpora al monumento del parque</p></dd>
+  <dt><code>domicilios</code></dt><dd><p>character</p></dd>
+  <dt><code>estado_civil</code></dt><dd><p>character</p></dd>
+  <dt><code>estudios</code></dt><dd><p>character</p></dd>
+  <dt><code>fecha_de_nacimiento</code></dt><dd><p>character</p></dd>
+  <dt><code>fecha_de_secuestro</code></dt><dd><p>character</p></dd>
+  <dt><code>lugar_de_nacimiento</code></dt><dd><p>character</p></dd>
+  <dt><code>lugar_de_secuestro</code></dt><dd><p>character</p></dd>
+  <dt><code>nacionalidad</code></dt><dd><p>character</p></dd>
+  <dt><code>ocupaciones</code></dt><dd><p>character</p></dd>
+  <dt><code>sexo</code></dt><dd><p>character</p></dd>
+  <dt><code>victimas_simultaneas</code></dt><dd><p>character Personas detenidas y/o asesinadas en el mismo operativo represivo que la víctima que se consigna en el Registro.</p></dd>
+  <dt><code>foto</code></dt><dd><p>character</p></dd>
+  <dt><code>apodos</code></dt><dd><p>character</p></dd>
+  <dt><code>cantidad_de_hijos</code></dt><dd><p>character</p></dd>
+  <dt><code>victimas_relacionadas</code></dt><dd><p>character</p></dd>
+  <dt><code>casos_relacionados</code></dt><dd><p>list</p></dd>
+  <dt><code>militancia</code></dt><dd><p>character</p></dd>
+  <dt><code>articulos_periodisticos</code></dt><dd><p>character</p></dd>
+  <dt><code>datos_de_la_identificacion</code></dt><dd><p>character</p></dd>
+  <dt><code>fecha_de_asesinado</code></dt><dd><p>character</p></dd>
+  <dt><code>lugar_de_asesinato</code></dt><dd><p>character</p></dd>
+  <dt><code>observaciones</code></dt><dd><p>character</p></dd>
+  <dt><code>datos_familiares</code></dt><dd><p>character</p></dd>
 
 </dl>
     

@@ -1,4 +1,4 @@
 library(testthat)
-library(RUVTE)
+library(presentes)
 
-test_check("RUVTE")
+test_check("presentes")

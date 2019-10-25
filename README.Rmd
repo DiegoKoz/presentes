@@ -12,52 +12,49 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
-# RUVTE
+# presentes
 
 <!-- badges: start -->
 [![Travis build status](https://travis-ci.org/DiegoKoz/RUVTE.svg?branch=master)](https://travis-ci.org/DiegoKoz/RUVTE)
 <!--[![Codecov test coverage](https://codecov.io/gh/DiegoKoz/RUVTE/branch/master/graph/badge.svg)](https://codecov.io/gh/DiegoKoz/RUVTE?branch=master)-->
 <!-- badges: end -->
 
-El objetivo de la librería RUVTE es poner a disposición la información provista en  http://datos.jus.gob.ar/dataset/registro-unificado-de-victimas-del-terrorismo-de-estado-ruvte y el informe https://www.argentina.gob.ar/sitiosdememoria/ruvte/informe 
+El objetivo de la librería `presentes` es poner a disposición la información oficial sobre víctimas del terrorismo de estado provista en:
 
+- http://datos.jus.gob.ar/dataset/registro-unificado-de-victimas-del-terrorismo-de-estado-ruvte 
+- https://www.argentina.gob.ar/sitiosdememoria/ruvte/informe 
+- http://basededatos.parquedelamemoria.org.ar/registros/
 
 ## Son 30.000
 
 Consideramos pertinente realizar la aclaración de que, aunque la información provista por este dataset no cuenta con 30.000 registros, esto no se debe a que no haya sido esa cantidad de víctimas del terrorismo de Estado en Argentina durante la úlitma dictadura militar, sino a que un gran número de casos no pudieron ser identificados y sistematizados.
 
 
-## Installation
+## Instalación
 
-You can install the development version from [GitHub](https://github.com/) with:
+Puede instalar este paquete desde [GitHub](https://github.com/) con:
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("DiegoKoz/RUVTE")
+devtools::install_github("DiegoKoz/presentes")
 ```
-## Example
+## Ejemplo de uso
 
-This is a basic example which shows you how to solve a common problem:
 
 ```{r example, message=FALSE, warning=FALSE}
-library(RUVTE)
+library(presentes)
 library(tidyverse)
-library(DT)
 ```
 
 ```{r}
-RUVTE::centros_clandestinos_detencion %>% sample_n(10)
+
+presentes::apodos %>% glimpse()
+presentes::centros_clandestinos_detencion %>% glimpse()
+presentes::parque_de_la_memoria %>% glimpse()
+presentes::victimas_accionar_represivo_ilegal %>% glimpse()
+presentes::victimas_accionar_represivo_ilegal_sin_denuncia_formal %>% glimpse()
 ```
 
-```{r}
-RUVTE::apodos %>% sample_n(10)
-```
 
-```{r}
-RUVTE::victimas_accionar_represivo_ilegal %>% sample_n(10)
-```
 
-```{r}
-RUVTE::victimas_accionar_represivo_ilegal_sin_denuncia_formal %>% sample_n(10)
-```
 
