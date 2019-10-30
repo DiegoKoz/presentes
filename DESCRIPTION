@@ -1,5 +1,5 @@
 Package: presentes
-Title: Unified Registry of Victims of State Terrorism -presentes-
+Title: Registry of Victims of State Terrorism in Argentina
 Version: 0.0.0.9000
 Authors@R: 
     person(given = "Diego",
@@ -8,8 +8,7 @@ Authors@R:
            email = "diegokoz92@gmail.com",
            comment = c(ORCID = "0000-0002-5396-3471"))
 Description: Compilation and digitalization of the oficial registry of victims of state terrorism in Argentina during the last
-             military coup. The original data comes from RUVTE-ILID (2019) <https://www.argentina.gob.ar/sitiosdememoria/ruvte/informe> 
-             and <http://basededatos.parquedelamemoria.org.ar/registros/>.
+             military coup. The original data comes from RUVTE-ILID (2019) <https://www.argentina.gob.ar/sitiosdememoria/ruvte/informe> and <http://basededatos.parquedelamemoria.org.ar/registros/>. The title, presentes, comes from present in spanish.
 BugReports: https://github.com/DiegoKoz/presentes/issues
 Depends: R (>= 3.5.0)
 License: MIT + file LICENSE
