@@ -7,6 +7,10 @@ Authors@R:
            role = c("aut", "cre"),
            email = "diegokoz92@gmail.com",
            comment = c(ORCID = "0000-0002-5396-3471"))
+    person(given = "Demian",
+           family = "Zayat",
+           role = "aut",
+           email = "demian.zayat@gmail.com")
 Description: Compilation and digitalization of the oficial registry of victims of state terrorism in Argentina during the last
              military coup. The original data comes from RUVTE-ILID (2019) <https://www.argentina.gob.ar/sitiosdememoria/ruvte/informe> and <http://basededatos.parquedelamemoria.org.ar/registros/>. The title, presentes, comes from present in spanish.
 BugReports: https://github.com/DiegoKoz/presentes/issues
