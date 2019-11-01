@@ -6,9 +6,9 @@
 \title{apodos}
 \format{A data frame with 5362 rows and 4 variables:
 \describe{
+  \item{\code{id_unico_ruvte}}{identificador RUVTE}
   \item{\code{nombre}}{Nombre y Apellido oficial}
   \item{\code{apellido_materno}}{Apellido Materno}
-  \item{\code{ID}}{identificador RUVTE}
   \item{\code{apodo}}{Apodo}
 }}
 \usage{
