@@ -29,7 +29,14 @@ victimas_accionar_represivo_ilegal_sin_denuncia_formal <-
                                                          TRUE~ lugar_asesinato_o_hallazgo_de_restos)
   )
 
-usethis::use_data(victimas_accionar_represivo_ilegal_sin_denuncia_formal)
+
+
+victimas_accionar_represivo_ilegal_sin_denuncia_formal <- victimas_accionar_represivo_ilegal_sin_denuncia_formal %>%
+  mutate(id_unico_ruvte = str_extract(id_unico_ruvte, '\\d+')) %>%
+  select(id_unico_ruvte, everything())
+
+
+usethis::use_data(victimas_accionar_represivo_ilegal_sin_denuncia_formal,overwrite = TRUE)
 
 
 data_frame_roxygen <- function(obj) {
