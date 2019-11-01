@@ -15,8 +15,8 @@ knitr::opts_chunk$set(
 # presentes
 
 <!-- badges: start -->
-[![Travis build status](https://travis-ci.org/DiegoKoz/RUVTE.svg?branch=master)](https://travis-ci.org/DiegoKoz/RUVTE)
-<!--[![Codecov test coverage](https://codecov.io/gh/DiegoKoz/RUVTE/branch/master/graph/badge.svg)](https://codecov.io/gh/DiegoKoz/RUVTE?branch=master)-->
+[![Travis build status](https://travis-ci.org/DiegoKoz/presentes.svg?branch=master)](https://travis-ci.org/DiegoKoz/presentes)
+<!--[![Codecov test coverage](https://codecov.io/gh/DiegoKoz/presentes/branch/master/graph/badge.svg)](https://codecov.io/gh/DiegoKoz/presentes?branch=master)-->
 <!-- badges: end -->
 
 El objetivo de la librería `presentes` es poner a disposición la información oficial sobre víctimas del terrorismo de estado provista en:
