@@ -27,4 +27,8 @@ victimas_accionar_represivo_ilegal <- victimas_accionar_represivo_ilegal %>%
                                               TRUE~ lugar_asesinato_o_hallazgo_de_restos)
          )
 
+victimas_accionar_represivo_ilegal <- victimas_accionar_represivo_ilegal %>%
+  mutate(id_unico_ruvte = str_extract(id_unico_ruvte, '\\d+')) %>%
+  select(id_unico_ruvte, everything())
+
 usethis::use_data(victimas_accionar_represivo_ilegal,overwrite = TRUE)

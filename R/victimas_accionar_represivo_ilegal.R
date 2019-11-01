@@ -3,12 +3,12 @@
 #' Recurso original: http://datos.jus.gob.ar/dataset/registro-unificado-de-victimas-del-terrorismo-de-estado-ruvte
 #' @format A data frame with 8753 rows and 20 variables:
 #' \describe{
+#'   \item{\code{id_unico_ruvte}}{character número de identificación del caso individual}
 #'   \item{\code{anio_denuncia}}{double año de alta original de la denuncia en los registros que hoy constituyen el Ruvte}
 #'   \item{\code{tipificacion_ruvte}}{character tipificación principal del caso según el Ruvte (víctima de desaparición forzada
 #'    o víctima de asesinato), a la que se agregan observaciones que en algunos casos especifican la fuente, y en otros,
 #'     actualizaciones de estado (por ejemplo, exhumados e identificados sus restos, entre otras)}
-#'   \item{\code{id_unico_ruvte}}{character número de identificación del caso individual}
-  #'   \item{\code{apellido_paterno_nombres}}{character apellido paterno y nombres de pila de la víctima}
+#'   \item{\code{apellido_paterno_nombres}}{character apellido paterno y nombres de pila de la víctima}
 #'   \item{\code{apellido_materno}}{character apellido materno}
 #'   \item{\code{apellido_casada}}{character apellido de casada}
 #'   \item{\code{edad_al_momento_del_hecho}}{character edad al momento del hecho (al momento de su deceso, o, en su defecto,
