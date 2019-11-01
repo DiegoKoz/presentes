@@ -23,8 +23,9 @@ normalizar_texto <- function(texto_crudo){
 apodos <- map_df(text, normalizar_texto)
 
 apodos <- apodos %>%
-  mutate(ID = str_extract(ID, '\\d+'),
-         apodo = trimws(str_remove_all(apodo, '\"')))
+  mutate(id_unico_ruvte = str_extract(ID, '\\d+'),
+         apodo = trimws(str_remove_all(apodo, '\"'))) %>%
+  select(id_unico_ruvte, everything(), -ID)
 
 usethis::use_data(apodos,overwrite = TRUE)
 
