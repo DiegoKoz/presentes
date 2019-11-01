@@ -22,6 +22,10 @@ normalizar_texto <- function(texto_crudo){
 
 apodos <- map_df(text, normalizar_texto)
 
-usethis::use_data(apodos)
+apodos <- apodos %>%
+  mutate(ID = str_extract(ID, '\\d+'),
+         apodo = trimws(str_remove_all(apodo, '\"')))
+
+usethis::use_data(apodos,overwrite = TRUE)
 
 write_csv(apodos,'extdata/apodos.csv')
