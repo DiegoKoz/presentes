@@ -1,7 +1,7 @@
-pandoc: 2.3.1
+pandoc: '2.5'
 pkgdown: 1.4.1
 pkgdown_sha: ~
-articles: {}
+articles: []
 urls:
   reference: https://diegokoz.github.io/RUVTE//reference
   article: https://diegokoz.github.io/RUVTE//articles

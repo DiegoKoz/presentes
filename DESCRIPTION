@@ -14,9 +14,10 @@ Authors@R: c(person(given = "Diego",
                     family = "Vazquez Brust", 
                     role = "aut",
                     email = "avazquez@gmail.com")) 
-Description: Compilation and digitalization of the oficial registry of victims of state terrorism in Argentina during the last
+Description: Compilation and digitalization of the official registry of victims of state terrorism in Argentina during the last
              military coup. The original data comes from RUVTE-ILID (2019) <https://www.argentina.gob.ar/sitiosdememoria/ruvte/informe> and <http://basededatos.parquedelamemoria.org.ar/registros/>. The title, presentes, comes from present in spanish.
 BugReports: https://github.com/DiegoKoz/presentes/issues
+URL: https://diegokoz.github.io/presentes/
 Depends: R (>= 3.5.0)
 License: MIT + file LICENSE
 Encoding: UTF-8
