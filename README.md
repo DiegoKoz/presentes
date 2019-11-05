@@ -8,6 +8,10 @@
 [![Travis build
 status](https://travis-ci.org/DiegoKoz/presentes.svg?branch=master)](https://travis-ci.org/DiegoKoz/presentes)
 <!--[![Codecov test coverage](https://codecov.io/gh/DiegoKoz/presentes/branch/master/graph/badge.svg)](https://codecov.io/gh/DiegoKoz/presentes?branch=master)-->
+[![CRAN
+status](https://www.r-pkg.org/badges/version/presentes)](https://cran.r-project.org/package=presentes)
+[![](http://cranlogs.r-pkg.org/badges/grand-total/presentes?color=blue)](https://cran.r-project.org/package=presentes)
+[![](http://cranlogs.r-pkg.org/badges/last-month/presentes?color=blue)](https://cran.r-project.org/package=presentes)
 <!-- badges: end -->
 
 El objetivo de la librería `presentes` es poner a disposición la
@@ -97,7 +101,7 @@ presentes::parque_de_la_memoria %>% glimpse()
 presentes::victimas_accionar_represivo_ilegal %>% glimpse()
 #> Observations: 8,753
 #> Variables: 20
-#> $ ID                                   <chr> "5389", "87", "11788", "990…
+#> $ id_unico_ruvte                       <chr> "5389", "87", "11788", "990…
 #> $ anio_denuncia                        <dbl> 1984, 1984, 1984, 1984, 198…
 #> $ tipificacion_ruvte                   <chr> "DESAPARICION FORZADA", "DE…
 #> $ apellido_paterno_nombres             <chr> "ABACHIAN  JUAN CARLOS", "A…
