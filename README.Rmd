@@ -16,7 +16,6 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![Travis build status](https://travis-ci.org/DiegoKoz/presentes.svg?branch=master)](https://travis-ci.org/DiegoKoz/presentes)
-<!--[![Codecov test coverage](https://codecov.io/gh/DiegoKoz/presentes/branch/master/graph/badge.svg)](https://codecov.io/gh/DiegoKoz/presentes?branch=master)-->
 [![CRAN status](https://www.r-pkg.org/badges/version/presentes)](https://cran.r-project.org/package=presentes)
 [![](http://cranlogs.r-pkg.org/badges/grand-total/presentes?color=blue)](https://cran.r-project.org/package=presentes)
 [![](http://cranlogs.r-pkg.org/badges/last-month/presentes?color=blue)](https://cran.r-project.org/package=presentes)
