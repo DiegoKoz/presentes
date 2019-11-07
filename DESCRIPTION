@@ -1,6 +1,6 @@
 Package: presentes
 Title: Registry of Victims of State Terrorism in Argentina
-Version: 0.1.0
+Version: 0.1.9000
 Authors@R: c(person(given = "Diego",
                     family = "Kozlowski",
                     role = c("aut", "cre"),
