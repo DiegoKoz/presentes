@@ -35,6 +35,23 @@ victimas_accionar_represivo_ilegal_sin_denuncia_formal <- victimas_accionar_repr
   mutate(id_unico_ruvte = str_extract(id_unico_ruvte, '\\d+')) %>%
   select(id_unico_ruvte, everything())
 
+library(data.table)   # porque Elio no sabe dplyr
+# Agega columna de edad estandarizada. Queda todo en años (messes y días queda fraccional)
+# Sin datos se convierte en NA y nacidos en cautiverio queda 0.
+victimas_accionar_represivo_ilegal_sin_denuncia_formal %<>%
+  as.data.table() %>%
+  .[, unidad := gsub("\\d", "", edad_al_momento_del_hecho)] %>%
+  .[, edad_al_momento_del_hecho_numerico := unglue::unglue_data(edad_al_momento_del_hecho, "{edad} {unidad}")$edad] %>%
+  .[unidad %like% "caut.", edad_al_momento_del_hecho_numerico := 0] %>%
+  .[unidad == "sin datos", edad_al_momento_del_hecho_numerico := NA] %>%
+  .[, edad_al_momento_del_hecho_numerico := as.numeric(edad_al_momento_del_hecho_numerico)] %>%
+  .[unidad %like% "mes", edad_al_momento_del_hecho_numerico := edad_al_momento_del_hecho_numerico/12] %>%
+  .[unidad %like% "día", edad_al_momento_del_hecho_numerico := edad_al_momento_del_hecho_numerico/365] %>%
+  .[, unidad := NULL] %>%
+  select(1:edad_al_momento_del_hecho, edad_al_momento_del_hecho_numerico, everything())
+
+
+
 
 usethis::use_data(victimas_accionar_represivo_ilegal_sin_denuncia_formal,overwrite = TRUE)
 

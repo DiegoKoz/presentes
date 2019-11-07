@@ -17,6 +17,7 @@
   \item{\code{apellido_casada}}{character apellido de casada}
   \item{\code{edad_al_momento_del_hecho}}{character edad al momento del hecho (al momento de su deceso, o, en su defecto,
    de su “desaparición”)}
+  \item{\code{edad_al_momento_del_hecho_numerico}}{numérico edad al momento del hecho en años. 0 significa nacido en cautiverio.}
   \item{\code{documentos}}{character tipo y número de documento}
   \item{\code{anio_nacimiento}}{character año de nacimiento}
   \item{\code{provincia_nacimiento}}{character provincia de nacimiento (solo para el caso de ciudadanos nacidos en Argentina)}

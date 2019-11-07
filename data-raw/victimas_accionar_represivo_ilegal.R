@@ -38,15 +38,13 @@ victimas_accionar_represivo_ilegal %<>%
   as.data.table() %>%
   .[, unidad := gsub("\\d", "", edad_al_momento_del_hecho)] %>%
   .[, edad_al_momento_del_hecho_numerico := unglue::unglue_data(edad_al_momento_del_hecho, "{edad} {unidad}")$edad] %>%
-  .[unidad == "mes", edad_al_momento_del_hecho_numerico := edad_al_momento_del_hecho_numerico/12] %>%
-  .[unidad == "día", edad_al_momento_del_hecho_numerico := edad_al_momento_del_hecho_numerico/365] %>%
   .[unidad %like% "caut.", edad_al_momento_del_hecho_numerico := 0] %>%
   .[unidad == "sin datos", edad_al_momento_del_hecho_numerico := NA] %>%
   .[, edad_al_momento_del_hecho_numerico := as.numeric(edad_al_momento_del_hecho_numerico)] %>%
+  .[unidad %like% "mes", edad_al_momento_del_hecho_numerico := edad_al_momento_del_hecho_numerico/12] %>%
+  .[unidad %like% "día", edad_al_momento_del_hecho_numerico := edad_al_momento_del_hecho_numerico/365] %>%
   .[, unidad := NULL] %>%
   select(1:edad_al_momento_del_hecho, edad_al_momento_del_hecho_numerico, everything())
 
-
-# Reordena la columna
 
 usethis::use_data(victimas_accionar_represivo_ilegal,overwrite = TRUE)
