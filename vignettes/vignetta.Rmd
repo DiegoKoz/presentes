@@ -1,0 +1,107 @@
+---
+title: "Vignette del paquete `Presentes`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{vignetta}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup, include=FALSE}
+library(presentes)
+library(tidyverse)
+library(lubridate)
+```
+<style>
+body {
+text-align: justify}
+</style>
+
+## El paquete `presentes` para R
+
+El paquete `presentes` tiene por objetivo facilitar el acceso a los datos que figuran en los registros estatales sobre las víctimas de la dictadura militar que tuvo lugar entre el 24 de marzo de 1976 y el 10 de diciembre de 1983 en Argentina. 
+
+Las fuentes principales de los datasets incluidos en el paquete son --en primer lugar-- el Registro Único de Víctimas del Terrorismo de Estado (RUVTE) dependiente de la Secretaría de Derechos Humanos y Pluralismo Cultural del Ministerio de Justicia y Derechos Humanos de la Nación, creado por Resolución 1261/2014 de dicho Ministerio (https://datos.gob.ar/dataset/justicia-registro-unificado-victimas-terrorismo-estado--ruvte-). En segundo lugar, el Monumento a las Víctimas del Terrorismo de Estado, realizado por el Consejo de Gestión del Parque de la Memoria y del Monumento a las Víctimas del Terrorismo de Estado, creado por la ley 3078 de la Ciudad de Buenos Aires (http://basededatos.parquedelamemoria.org.ar/). Ambos registros recogen información de víctimas asesinadas o detenidas aún unos días antes a la fecha del inicio formal del golpe de estado militar. 
+
+En estos listados figuran las víctimas que pudieron identificarse al día de la fecha. Ambos registros son actualizados periódicamente con la nueva información que pueda recopilarse, tanto espontáneamente o como fruto de los juicios en trámite, como parte de una política pública de Verdad, Memoria y Justicia. Hay que aclarar que estos listados no están completos, y que los organismos de derechos humanos del país (que son parte del órgano de gestión del Monumento del Parque de la Memoria) estiman que la cantidad de víctimas es de 30.000 detenidos desaparecidos. 
+
+Compartimos esta última apreciación, y por ello decimos que estos 30.000 compañeros detenidos desaparecidos, aún están `presentes` entre nosotros, ahora y siempre.
+
+
+## Los datasets
+
+En el paquete se encuentran los siguientes datasets
+
+- `apodos`: contiene la información de los apodos que utilizaron las víctimas, clasificado por el número identificador único del ruvte, nombre completo y apellido materno.
+
+- `centros_clandestinos_de_detención`: Contiene el listado de los 762 centros clandestinos de detención (CCD) que se usaron en todo el país, con variables sobre el propietario del lugar de emplazamiento, la denominación, si hoy funciona allí un espacio de memoria, la ubicación completa, y la longitud y la latitud, lo que permite georreferenciarlos.
+
+- `victimas_accionar_represivo_ilegal`: El listado de víctimas con denuncia formal del RUVTE. Incluye 8753 registros al día de la fecha, con datos sobre el año de la denuncia, la tipificación del RUVTE, datos personales, edad al momento del hecho, fecha de la detención o asesinato, lugar de la detención o secuestro, lugar de hallazgo de los restos,provincia y país de nacimiento, y si tiene fotografía, entre otros.
+
+- `victimas_accionar_represivo_ilegal_sin_denuncia_formal`: El listado de víctimas sin denuncia formal del RUVTE. Incluye 784 registros al día de la fecha, con datos sobre el año de la denuncia, la tipificación del RUVTE, datos personales, edad al momento del hecho, fecha del secuestro o asesinato, lugar de la detención o secuestro, lugar de hallazgo de los restos,provincia y país de nacimiento, y si tiene fotografía, y la fuente de la información.
+
+- `parque_de_la_memoria`: Esta es la base de datos del Monumento a las Víctimas del Terrorismo de Estado. Incluye 8751 víctimas al día de la fecha, con variables sobre el nombre, edad, si estaba embarazada, el estado (detenido/a desaparecido/a o asesinado/a), el año del secuestro o asesinato, el domicilio, estado civil, estudios cursados, fecha de nacimiento, lugar del secuestro o asesinato, ocupaciones, apodos, cantidad de hijos, victimas relacionadas, casos relacionados, militancia en organizaciones, artículos en diarios que hablen sobre ella, entre otras. Asimismo, se incluye un link a la página del Monumento.
+
+## Algunos Ejemplos
+
+Con estos datos se pueden hacer numerosos análisis sobre el funcionamiento del terrorismo de Estado en la Argentina. Por ejemplo, puede verse que fueron los primeros años de la dictadura militar aquellos en donde se produjeron mayor cantidad de violaciones a los derechos humanos.
+
+```{r, warning=FALSE, message=FALSE}
+ggplot(data = presentes::parque_de_la_memoria)+
+  geom_histogram(aes(x = as.numeric(ano_en_monumento)), stat = "count")+
+  labs(subtitle= "Victimas por año",
+       x = "", y = "",
+       caption = "Fuente: Monumento del Parque de la Memoria")+
+    theme_minimal()
+
+```
+
+O analizar la edad de las víctimas al momento del secuestro/asesinato
+```{r, warning=FALSE, message=FALSE}
+ggplot(data = presentes::parque_de_la_memoria)+
+  geom_freqpoly(aes(x = as.numeric(edad), 
+                    color = factor(sexo, labels = c("Fem", "Masc", "NA"))), stat = "count", size = 1)+
+  labs(subtitle= "Edad al momento del hecho",
+       x = "edad", y = "cant",
+       caption = "Fuente: Monumento del Parque de la Memoria",
+       color = "Sexo")+
+  theme_minimal()
+```
+
+
+## Mapas
+
+The figure sizes have been customised so that you can easily put two images side-by-side. 
+
+```{r, fig.show='hold'}
+plot(1:10)
+plot(10:1)
+```
+
+You can enable figure captions by `fig_caption: yes` in YAML:
+
+    output:
+      rmarkdown::html_vignette:
+        fig_caption: yes
+
+Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
+
+## More Examples
+
+You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
+
+```{r, echo=FALSE, results='asis'}
+knitr::kable(head(mtcars, 10))
+```
+
+Also a quote using `>`:
+
+> "He who gives up [code] safety for [code] speed deserves neither."
+([via](https://twitter.com/hadleywickham/status/504368538874703872))
