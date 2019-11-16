@@ -1,5 +1,5 @@
 ---
-title: "Vignette del paquete `Presentes`"
+title: "Viñeta del paquete `Presentes`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{vignetta}
@@ -18,6 +18,8 @@ knitr::opts_chunk$set(
 library(presentes)
 library(tidyverse)
 library(lubridate)
+library(sf)
+library(leaflet)
 ```
 <style>
 body {
@@ -28,11 +30,11 @@ text-align: justify}
 
 El paquete `presentes` tiene por objetivo facilitar el acceso a los datos que figuran en los registros estatales sobre las víctimas de la dictadura militar que tuvo lugar entre el 24 de marzo de 1976 y el 10 de diciembre de 1983 en Argentina. 
 
-Las fuentes principales de los datasets incluidos en el paquete son --en primer lugar-- el Registro Único de Víctimas del Terrorismo de Estado (RUVTE) dependiente de la Secretaría de Derechos Humanos y Pluralismo Cultural del Ministerio de Justicia y Derechos Humanos de la Nación, creado por Resolución 1261/2014 de dicho Ministerio (https://datos.gob.ar/dataset/justicia-registro-unificado-victimas-terrorismo-estado--ruvte-). En segundo lugar, el Monumento a las Víctimas del Terrorismo de Estado, realizado por el Consejo de Gestión del Parque de la Memoria y del Monumento a las Víctimas del Terrorismo de Estado, creado por la ley 3078 de la Ciudad de Buenos Aires (http://basededatos.parquedelamemoria.org.ar/). Ambos registros recogen información de víctimas asesinadas o detenidas aún unos días antes a la fecha del inicio formal del golpe de estado militar. 
+Las fuentes principales de los datasets incluidos en el paquete son --en primer lugar-- el Registro Único de Víctimas del Terrorismo de Estado (RUVTE) dependiente de la Secretaría de Derechos Humanos y Pluralismo Cultural del Ministerio de Justicia y Derechos Humanos de la Nación, creado por Resolución 1261/2014 de dicho Ministerio (https://datos.gob.ar/dataset/justicia-registro-unificado-victimas-terrorismo-estado--ruvte-). En segundo lugar, el Monumento a las Víctimas del Terrorismo de Estado, realizado por el Consejo de Gestión del Parque de la Memoria y del Monumento a las Víctimas del Terrorismo de Estado, creado por la ley 3078 de la Ciudad de Buenos Aires (http://basededatos.parquedelamemoria.org.ar/). Ambos registros recogen información de víctimas asesinadas o detenidas/desaparecidas aún antes de la fecha del inicio formal del golpe de estado militar. 
 
-En estos listados figuran las víctimas que pudieron identificarse al día de la fecha. Ambos registros son actualizados periódicamente con la nueva información que pueda recopilarse, tanto espontáneamente o como fruto de los juicios en trámite, como parte de una política pública de Verdad, Memoria y Justicia. Hay que aclarar que estos listados no están completos, y que los organismos de derechos humanos del país (que son parte del órgano de gestión del Monumento del Parque de la Memoria) estiman que la cantidad de víctimas es de 30.000 detenidos desaparecidos. 
+En estos listados figuran las víctimas que pudieron identificarse hasta la actualidad. Ambos registros son actualizados periódicamente con la nueva información que pueda recopilarse, tanto espontáneamente o como fruto de los juicios en trámite, como parte de una política pública de Verdad, Memoria y Justicia. Hay que aclarar que estos listados no están completos, y que los organismos de derechos humanos del país (que son parte del órgano de gestión del Monumento del Parque de la Memoria, por ejemplo) estiman que la cantidad de víctimas es de 30.000 detenidos desaparecidos. 
 
-Compartimos esta última apreciación, y por ello decimos que estos 30.000 compañeros detenidos desaparecidos, aún están `presentes` entre nosotros, ahora y siempre.
+Compartimos esta última apreciación, y por ello decimos que estos 30.000 compañeres detenidos desaparecidos, aún están `presentes` entre nosotros, ahora y siempre.
 
 
 ## Los datasets
@@ -51,20 +53,16 @@ En el paquete se encuentran los siguientes datasets
 
 ## Algunos Ejemplos
 
-Con estos datos se pueden hacer numerosos análisis sobre el funcionamiento del terrorismo de Estado en la Argentina. Por ejemplo, puede verse que fueron los primeros años de la dictadura militar aquellos en donde se produjeron mayor cantidad de violaciones a los derechos humanos.
+Con estos datos se pueden hacer numerosos análisis sobre el accionar del terrorismo de Estado en la Argentina. Por ejemplo, puede verse que fueron los primeros años de la dictadura militar aquellos en donde se produjeron mayor cantidad de violaciones a los derechos humanos. O también se puede analizar la edad de las víctimas al momento del secuestro/asesinato.
 
-```{r, warning=FALSE, message=FALSE}
+```{r, warning=FALSE, message=FALSE, fig.show='hold'}
 ggplot(data = presentes::parque_de_la_memoria)+
   geom_histogram(aes(x = as.numeric(ano_en_monumento)), stat = "count")+
-  labs(subtitle= "Victimas por año",
+  labs(subtitle= "Víctimas por año",
        x = "", y = "",
        caption = "Fuente: Monumento del Parque de la Memoria")+
     theme_minimal()
 
-```
-
-O analizar la edad de las víctimas al momento del secuestro/asesinato
-```{r, warning=FALSE, message=FALSE}
 ggplot(data = presentes::parque_de_la_memoria)+
   geom_freqpoly(aes(x = as.numeric(edad), 
                     color = factor(sexo, labels = c("Fem", "Masc", "NA"))), stat = "count", size = 1)+
@@ -73,35 +71,59 @@ ggplot(data = presentes::parque_de_la_memoria)+
        caption = "Fuente: Monumento del Parque de la Memoria",
        color = "Sexo")+
   theme_minimal()
+
 ```
 
+## Geolocalización
 
-## Mapas
+El dataset `centros_clandestinos_de_detención` incluye la longitud y la latitud de los CCD. Con ello pueden graficarse sobre un mapa de nuesto país.
 
-The figure sizes have been customised so that you can easily put two images side-by-side. 
+```{r, message=FALSE, warning=FALSE}
+argentina <- st_read("https://github.com/Demzayat/varios/raw/master/provinciasND.geojson")
 
-```{r, fig.show='hold'}
-plot(1:10)
-plot(10:1)
+ccd <- presentes::centros_clandestinos_detencion %>% 
+  filter(!is.na(lon)) %>% 
+  st_as_sf(coords = c("lon", "lat"), crs = 4326, remove = FALSE)
+
+ggplot()+
+  geom_sf(data = argentina)+
+  geom_sf(data = ccd, color = "red")+
+  coord_sf(xlim = c(-52, -74), ylim = c(-20, -56), expand = FALSE)+
+  labs(title = "Centros Clandestinos de Detención",
+       subtitle = "Argentina 1976-1983",
+       caption = "Fuente: RUVTE + Presentes")+
+  theme_void()
 ```
 
-You can enable figure captions by `fig_caption: yes` in YAML:
+Este mismo dataset contiene la variable `lugar_emplazamiento_propiedad`, sobre la titularidad de la propiedad donde se instaló el CCD. La mayoría son estatales (policía y fuerzas militares), pero también hay unos cincuenta en propiedades no estatales. Podemos ver cuáles son en el siguiente mapa navegable (e interactivo).
 
-    output:
-      rmarkdown::html_vignette:
-        fig_caption: yes
+```{r, warning=FALSE, message=FALSE}
+# Establecimientos no estatales
+establecimientos <- presentes::centros_clandestinos_detencion %>% 
+  filter(lugar_emplazamiento_propiedad == "ESTABLECIMIENTO PRIVADO"|
+         lugar_emplazamiento_propiedad == "PARTICULAR (VIVIENDA O SIMILAR)"|
+         lugar_emplazamiento_propiedad == "SIN ESTABLECER PROPIEDAD"|
+         lugar_emplazamiento_propiedad == "EJÉRCITO / ESTABLECIMIENTO PRIVADO"|
+         lugar_emplazamiento_propiedad == "PARTICULAR (LOCAL)")
 
-Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
-
-## More Examples
-
-You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
-
-```{r, echo=FALSE, results='asis'}
-knitr::kable(head(mtcars, 10))
+leaflet(data = establecimientos) %>% 
+  addTiles() %>% 
+  addCircleMarkers(lng = ~lon, lat = ~lat, 
+                   label = ~denominacion,
+                   color = "red", radius = 3)
 ```
 
-Also a quote using `>`:
+## Militancia
 
-> "He who gives up [code] safety for [code] speed deserves neither."
-([via](https://twitter.com/hadleywickham/status/504368538874703872))
+La base de `parque_de_la_memoria` también tiene, para los casos con datos, la pertenencia de la víctima a alguna organización militante. Puede armarse un cuadro con las primeras 50 organizaciones.
+
+```{r}
+orga <- unnest(presentes::parque_de_la_memoria, militancia) %>% 
+  separate(listado, into = c("orga1", "orga2", "orga3"), sep =" - ")
+
+tabla_orga <- as.data.frame(table(c(orga$orga1, orga$orga2, orga$orga3))) %>% 
+  arrange(desc(Freq))
+
+knitr::kable(head(tabla_orga, 50))
+```
+
