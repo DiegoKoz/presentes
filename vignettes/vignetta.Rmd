@@ -117,7 +117,7 @@ leaflet(data = establecimientos) %>%
 
 La base de `parque_de_la_memoria` también tiene, para los casos con datos, la pertenencia de la víctima a alguna organización militante. Puede armarse un cuadro con las primeras 50 organizaciones.
 
-```{r}
+```{r, warning=FALSE}
 orga <- unnest(presentes::parque_de_la_memoria, militancia) %>% 
   separate(listado, into = c("orga1", "orga2", "orga3"), sep =" - ")
 
