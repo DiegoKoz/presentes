@@ -95,6 +95,24 @@ ggplot()+
   theme_void()
 ```
 
+
+También utilizando [leaflet](https://rstudio.github.io/leaflet/) podemos realizar un mapa interactivo que muestre las características de cada CCD
+
+```{r, warning=FALSE, message=FALSE, fig.width=9, fig.height=9}
+labs <- lapply(seq(nrow(centros_clandestinos_detencion)), function(i) {
+  paste0( '<p>', centros_clandestinos_detencion[i, "lugar_emplazamiento_propiedad"], '<p></p>', 
+          'denominacion: ',centros_clandestinos_detencion[i, "denominacion"], ', ', 
+          'espacio_de_memoria: ',centros_clandestinos_detencion[i, "espacio_de_memoria"],'</p><p>', 
+          'ubicacion: ',centros_clandestinos_detencion[i, "ubicacion"], '</p>' ) 
+})
+
+leaflet(data = centros_clandestinos_detencion) %>% 
+  addTiles() %>% 
+  addMarkers(clusterOptions = markerClusterOptions(),
+             lng = ~lon, lat = ~lat, 
+             label = lapply(labs, htmltools::HTML))
+```
+
 Este mismo dataset contiene la variable `lugar_emplazamiento_propiedad`, sobre la titularidad de la propiedad donde se instaló el CCD. La mayoría son estatales (policía y fuerzas militares), pero también hay unos cincuenta en propiedades no estatales. Podemos ver cuáles son en el siguiente mapa navegable (e interactivo).
 
 ```{r, warning=FALSE, message=FALSE, fig.width=9, fig.height=9}
@@ -110,12 +128,16 @@ labs <- lapply(seq(nrow(establecimientos)), function(i) {
           'ubicacion: ',establecimientos[i, "ubicacion"], '</p>' ) 
 })
 
+
 leaflet(data = establecimientos) %>% 
   addTiles() %>% 
   addMarkers(clusterOptions = markerClusterOptions(),
              lng = ~lon, lat = ~lat, 
              label = lapply(labs, htmltools::HTML))
 ```
+
+
+
 
 ## Militancia
 
