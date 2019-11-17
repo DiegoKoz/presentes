@@ -78,7 +78,7 @@ ggplot(data = presentes::parque_de_la_memoria)+
 
 El dataset `centros_clandestinos_de_detención` incluye la longitud y la latitud de los CCD. Con ello pueden graficarse sobre un mapa de nuesto país.
 
-```{r, message=FALSE, warning=FALSE, fig.width=10, fig.height=10}
+```{r, message=FALSE, warning=FALSE, fig.width=7, fig.height=10}
 argentina <- st_read("https://github.com/Demzayat/varios/raw/master/provinciasND.geojson")
 
 ccd <- presentes::centros_clandestinos_detencion %>% 
@@ -97,7 +97,7 @@ ggplot()+
 
 Este mismo dataset contiene la variable `lugar_emplazamiento_propiedad`, sobre la titularidad de la propiedad donde se instaló el CCD. La mayoría son estatales (policía y fuerzas militares), pero también hay unos cincuenta en propiedades no estatales. Podemos ver cuáles son en el siguiente mapa navegable (e interactivo).
 
-```{r, warning=FALSE, message=FALSE, fig.width=10, fig.height=10}
+```{r, warning=FALSE, message=FALSE, fig.width=9, fig.height=9}
 # Establecimientos no estatales
 establecimientos <- presentes::centros_clandestinos_detencion %>% 
   filter(lugar_emplazamiento_propiedad %in% c("ESTABLECIMIENTO PRIVADO","PARTICULAR (VIVIENDA O SIMILAR)","SIN ESTABLECER PROPIEDAD","EJÉRCITO / ESTABLECIMIENTO PRIVADO","PARTICULAR (LOCAL)"))
@@ -114,8 +114,7 @@ leaflet(data = establecimientos) %>%
   addTiles() %>% 
   addMarkers(clusterOptions = markerClusterOptions(),
              lng = ~lon, lat = ~lat, 
-             label = lapply(labs, htmltools::HTML))#,
-             #color = ~pal(lugar_emplazamiento_propiedad), radius = 4)
+             label = lapply(labs, htmltools::HTML))
 ```
 
 ## Militancia
