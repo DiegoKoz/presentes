@@ -1,8 +1,8 @@
 ---
-title: "Viñeta del paquete `Presentes`"
+title: "Descripción y ejemplos de uso del paquete `Presentes`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{vignetta}
+  %\VignetteIndexEntry{vignette}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -45,7 +45,7 @@ En el paquete se encuentran los siguientes datasets
 
 - `centros_clandestinos_de_detención`: Contiene el listado de los 762 centros clandestinos de detención (CCD) que se usaron en todo el país, con variables sobre el propietario del lugar de emplazamiento, la denominación, si hoy funciona allí un espacio de memoria, la ubicación completa, y la longitud y la latitud, lo que permite georreferenciarlos.
 
-- `victimas_accionar_represivo_ilegal`: El listado de víctimas con denuncia formal del RUVTE. Incluye 8753 registros al día de la fecha, con datos sobre el año de la denuncia, la tipificación del RUVTE, datos personales, edad al momento del hecho, fecha de la detención o asesinato, lugar de la detención o secuestro, lugar de hallazgo de los restos,provincia y país de nacimiento, y si tiene fotografía, entre otros.
+- `victimas_accionar_represivo_ilegal`: El listado de víctimas con denuncia formal del RUVTE. Incluye 8753 registros al día de la fecha, con datos sobre el año de la denuncia, la tipificación del RUVTE, datos personales, edad al momento del hecho, fecha de la detención o asesinato, lugar de la detención o secuestro, lugar de hallazgo de los restos, provincia y país de nacimiento, y si tiene fotografía, entre otros.
 
 - `victimas_accionar_represivo_ilegal_sin_denuncia_formal`: El listado de víctimas sin denuncia formal del RUVTE. Incluye 784 registros al día de la fecha, con datos sobre el año de la denuncia, la tipificación del RUVTE, datos personales, edad al momento del hecho, fecha del secuestro o asesinato, lugar de la detención o secuestro, lugar de hallazgo de los restos,provincia y país de nacimiento, y si tiene fotografía, y la fuente de la información.
 
@@ -78,7 +78,7 @@ ggplot(data = presentes::parque_de_la_memoria)+
 
 El dataset `centros_clandestinos_de_detención` incluye la longitud y la latitud de los CCD. Con ello pueden graficarse sobre un mapa de nuesto país.
 
-```{r, message=FALSE, warning=FALSE}
+```{r, message=FALSE, warning=FALSE, fig.width=10, fig.height=10}
 argentina <- st_read("https://github.com/Demzayat/varios/raw/master/provinciasND.geojson")
 
 ccd <- presentes::centros_clandestinos_detencion %>% 
@@ -97,20 +97,25 @@ ggplot()+
 
 Este mismo dataset contiene la variable `lugar_emplazamiento_propiedad`, sobre la titularidad de la propiedad donde se instaló el CCD. La mayoría son estatales (policía y fuerzas militares), pero también hay unos cincuenta en propiedades no estatales. Podemos ver cuáles son en el siguiente mapa navegable (e interactivo).
 
-```{r, warning=FALSE, message=FALSE}
+```{r, warning=FALSE, message=FALSE, fig.width=10, fig.height=10}
 # Establecimientos no estatales
 establecimientos <- presentes::centros_clandestinos_detencion %>% 
-  filter(lugar_emplazamiento_propiedad == "ESTABLECIMIENTO PRIVADO"|
-         lugar_emplazamiento_propiedad == "PARTICULAR (VIVIENDA O SIMILAR)"|
-         lugar_emplazamiento_propiedad == "SIN ESTABLECER PROPIEDAD"|
-         lugar_emplazamiento_propiedad == "EJÉRCITO / ESTABLECIMIENTO PRIVADO"|
-         lugar_emplazamiento_propiedad == "PARTICULAR (LOCAL)")
+  filter(lugar_emplazamiento_propiedad %in% c("ESTABLECIMIENTO PRIVADO","PARTICULAR (VIVIENDA O SIMILAR)","SIN ESTABLECER PROPIEDAD","EJÉRCITO / ESTABLECIMIENTO PRIVADO","PARTICULAR (LOCAL)"))
+
+
+labs <- lapply(seq(nrow(establecimientos)), function(i) {
+  paste0( '<p>', establecimientos[i, "lugar_emplazamiento_propiedad"], '<p></p>', 
+          'denominacion: ',establecimientos[i, "denominacion"], ', ', 
+          'espacio_de_memoria: ',establecimientos[i, "espacio_de_memoria"],'</p><p>', 
+          'ubicacion: ',establecimientos[i, "ubicacion"], '</p>' ) 
+})
 
 leaflet(data = establecimientos) %>% 
   addTiles() %>% 
-  addCircleMarkers(lng = ~lon, lat = ~lat, 
-                   label = ~denominacion,
-                   color = "red", radius = 3)
+  addMarkers(clusterOptions = markerClusterOptions(),
+             lng = ~lon, lat = ~lat, 
+             label = lapply(labs, htmltools::HTML))#,
+             #color = ~pal(lugar_emplazamiento_propiedad), radius = 4)
 ```
 
 ## Militancia
@@ -121,9 +126,16 @@ La base de `parque_de_la_memoria` también tiene, para los casos con datos, la p
 orga <- unnest(presentes::parque_de_la_memoria, militancia) %>% 
   separate(listado, into = c("orga1", "orga2", "orga3"), sep =" - ")
 
-tabla_orga <- as.data.frame(table(c(orga$orga1, orga$orga2, orga$orga3))) %>% 
-  arrange(desc(Freq))
+orga %>% 
+  select(orga1,orga2,orga3) %>% 
+  gather(value = Organización) %>% 
+  group_by(Organización) %>%
+  filter(!is.na(Organización)) %>% 
+  summarise(Proporción = n()/nrow(.)) %>%
+  arrange(desc(Proporción)) %>% 
+  mutate(Proporción = scales::percent(Proporción)) %>% 
+  top_n(50) %>% 
+  knitr::kable()
 
-knitr::kable(head(tabla_orga, 50))
 ```
 

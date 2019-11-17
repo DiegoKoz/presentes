@@ -2,6 +2,7 @@
 
 * spelling check in DESCRIPTION
 * add URL to DESCRIPTION
+* Add vignettes
 
 ## Test environments
 * local ubuntu 19.10, R 3.6.1
