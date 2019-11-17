@@ -1,5 +1,5 @@
 ---
-title: "Descripción y ejemplos de uso del paquete `Presentes`"
+title: "Descripción y ejemplos de uso del paquete `presentes`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{vignette}
@@ -98,7 +98,7 @@ ggplot()+
 
 También utilizando [leaflet](https://rstudio.github.io/leaflet/) podemos realizar un mapa interactivo que muestre las características de cada CCD
 
-```{r, warning=FALSE, message=FALSE, fig.width=9, fig.height=9}
+```{r, warning=FALSE, message=FALSE, fig.width=7, fig.height=7}
 labs <- lapply(seq(nrow(centros_clandestinos_detencion)), function(i) {
   paste0( '<p>', centros_clandestinos_detencion[i, "lugar_emplazamiento_propiedad"], '<p></p>', 
           'denominacion: ',centros_clandestinos_detencion[i, "denominacion"], ', ', 
@@ -115,7 +115,7 @@ leaflet(data = centros_clandestinos_detencion) %>%
 
 Este mismo dataset contiene la variable `lugar_emplazamiento_propiedad`, sobre la titularidad de la propiedad donde se instaló el CCD. La mayoría son estatales (policía y fuerzas militares), pero también hay unos cincuenta en propiedades no estatales. Podemos ver cuáles son en el siguiente mapa navegable (e interactivo).
 
-```{r, warning=FALSE, message=FALSE, fig.width=9, fig.height=9}
+```{r, warning=FALSE, message=FALSE, fig.width=7, fig.height=7}
 # Establecimientos no estatales
 establecimientos <- presentes::centros_clandestinos_detencion %>% 
   filter(lugar_emplazamiento_propiedad %in% c("ESTABLECIMIENTO PRIVADO","PARTICULAR (VIVIENDA O SIMILAR)","SIN ESTABLECER PROPIEDAD","EJÉRCITO / ESTABLECIMIENTO PRIVADO","PARTICULAR (LOCAL)"))
