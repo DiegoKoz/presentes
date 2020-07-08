@@ -12,7 +12,7 @@ r_packages:
 r_github_packages:
   - DiegoKoz/presentes
 
-before_install: sudo apt-get install libudunits2-dev; R -e 'install.packages("units")'
+before_install: sudo apt-get install libudunits2-dev libgdal-dev libgeos-dev libproj-dev; R -e 'install.packages("units")'
 
 after_success:
 - Rscript -e 'library(covr);codecov()'
