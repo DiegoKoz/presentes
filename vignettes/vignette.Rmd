@@ -2,7 +2,7 @@
 title: "Descripción y ejemplos de uso del paquete `presentes`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{vignette}
+  %\VignetteIndexEntry{Descripción y ejemplos de uso del paquete `presentes`}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -99,6 +99,13 @@ ggplot()+
 También utilizando [leaflet](https://rstudio.github.io/leaflet/) podemos realizar un mapa interactivo que muestre las características de cada CCD
 
 ```{r, warning=FALSE, message=FALSE, fig.width=7, fig.height=7}
+# Parámetros para usar el mapa base Argenmap del IGN 
+# ver https://www.ign.gob.ar/NuestrasActividades/InformacionGeoespacial/ServiciosOGC/Leaflet
+
+am_url = "https://wms.ign.gob.ar/geoserver/gwc/service/tms/1.0.0/mapabase_gris@EPSG%3A3857@png/{z}/{x}/{-y}.png"
+am_attribution = '<a href="http://www.ign.gob.ar/AreaServicios/Argenmap/IntroduccionV2" target="_blank">Instituto Geográfico Nacional</a> + <a href="http://www.osm.org/copyright" target="_blank">OpenStreetMap</a>'
+
+
 labs <- lapply(seq(nrow(centros_clandestinos_detencion)), function(i) {
   paste0( '<p>', centros_clandestinos_detencion[i, "lugar_emplazamiento_propiedad"], '<p></p>', 
           'denominacion: ',centros_clandestinos_detencion[i, "denominacion"], ', ', 
@@ -107,7 +114,8 @@ labs <- lapply(seq(nrow(centros_clandestinos_detencion)), function(i) {
 })
 
 leaflet(data = centros_clandestinos_detencion) %>% 
-  addTiles() %>% 
+  addTiles(urlTemplate = am_url,
+           attribution = am_attribution) %>% 
   addMarkers(clusterOptions = markerClusterOptions(),
              lng = ~lon, lat = ~lat, 
              label = lapply(labs, htmltools::HTML))
@@ -130,7 +138,8 @@ labs <- lapply(seq(nrow(establecimientos)), function(i) {
 
 
 leaflet(data = establecimientos) %>% 
-  addTiles() %>% 
+  addTiles(urlTemplate = am_url,
+           attribution = am_attribution) %>% 
   addMarkers(clusterOptions = markerClusterOptions(),
              lng = ~lon, lat = ~lat, 
              label = lapply(labs, htmltools::HTML))

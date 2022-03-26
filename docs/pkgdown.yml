@@ -1,9 +1,10 @@
-pandoc: '2.5'
-pkgdown: 1.4.1
+pandoc: 2.9.2.1
+pkgdown: 2.0.2
 pkgdown_sha: ~
 articles:
   vignette: vignette.html
+last_built: 2022-03-26T17:08Z
 urls:
-  reference: https://diegokoz.github.io/RUVTE//reference
-  article: https://diegokoz.github.io/RUVTE//articles
+  reference: https://diegokoz.github.io/RUVTE/reference
+  article: https://diegokoz.github.io/RUVTE/articles
 

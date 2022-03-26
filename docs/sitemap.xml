@@ -1,24 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://diegokoz.github.io/RUVTE//index.html</loc>
+    <loc>https://diegokoz.github.io/RUVTE/404.html</loc>
   </url>
   <url>
-    <loc>https://diegokoz.github.io/RUVTE//reference/apodos.html</loc>
+    <loc>https://diegokoz.github.io/RUVTE/LICENSE-text.html</loc>
   </url>
   <url>
-    <loc>https://diegokoz.github.io/RUVTE//reference/centros_clandestinos_detencion.html</loc>
+    <loc>https://diegokoz.github.io/RUVTE/LICENSE.html</loc>
   </url>
   <url>
-    <loc>https://diegokoz.github.io/RUVTE//reference/parque_de_la_memoria.html</loc>
+    <loc>https://diegokoz.github.io/RUVTE/articles/Carta_Duhalde.html</loc>
   </url>
   <url>
-    <loc>https://diegokoz.github.io/RUVTE//reference/victimas_accionar_represivo_ilegal.html</loc>
+    <loc>https://diegokoz.github.io/RUVTE/articles/index.html</loc>
   </url>
   <url>
-    <loc>https://diegokoz.github.io/RUVTE//reference/victimas_accionar_represivo_ilegal_sin_denuncia_formal.html</loc>
+    <loc>https://diegokoz.github.io/RUVTE/articles/vignetta.html</loc>
   </url>
   <url>
-    <loc>https://diegokoz.github.io/RUVTE//articles/vignette.html</loc>
+    <loc>https://diegokoz.github.io/RUVTE/articles/vignette.html</loc>
+  </url>
+  <url>
+    <loc>https://diegokoz.github.io/RUVTE/authors.html</loc>
+  </url>
+  <url>
+    <loc>https://diegokoz.github.io/RUVTE/index.html</loc>
+  </url>
+  <url>
+    <loc>https://diegokoz.github.io/RUVTE/news/index.html</loc>
+  </url>
+  <url>
+    <loc>https://diegokoz.github.io/RUVTE/reference/apodos.html</loc>
+  </url>
+  <url>
+    <loc>https://diegokoz.github.io/RUVTE/reference/centros_clandestinos_detencion.html</loc>
+  </url>
+  <url>
+    <loc>https://diegokoz.github.io/RUVTE/reference/index.html</loc>
+  </url>
+  <url>
+    <loc>https://diegokoz.github.io/RUVTE/reference/parque_de_la_memoria.html</loc>
+  </url>
+  <url>
+    <loc>https://diegokoz.github.io/RUVTE/reference/victimas_accionar_represivo_ilegal.html</loc>
+  </url>
+  <url>
+    <loc>https://diegokoz.github.io/RUVTE/reference/victimas_accionar_represivo_ilegal_sin_denuncia_formal.html</loc>
   </url>
 </urlset>
