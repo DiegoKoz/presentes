@@ -31,7 +31,13 @@ sistematizados.
 
 ## Instalación
 
-Puede instalar este paquete desde [GitHub](https://github.com/) con:
+Puede instalar este paquete desde CRAN con: 
+
+```r
+install.packages("presentes") 
+```
+
+O puede instalarlo desde [GitHub](https://github.com/) con:
 
 ``` r
 # install.packages("devtools")
